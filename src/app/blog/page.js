@@ -5,14 +5,15 @@ import React from 'react'
 async function getData() {
   // 1 endpoint
 
-  const endpoint = "http://localhost:3000/api/posts"
-  const res = await fetch(endpoint)
+  // const endpoint = "http://localhost:3000/api/posts"
+  // const res = await fetch(endpoint)
 
-  if(!res.ok) {
-    throw new Error("Failed to fetch data")
-  }
+  // if(!res.ok) {
+  //   throw new Error("Failed to fetch data")
+  // }
 
-  return res.json()
+  // return res.json()
+  return {items:[]}
 }
 
 export default async function BlogPage() {
