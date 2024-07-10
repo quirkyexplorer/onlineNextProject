@@ -5,7 +5,7 @@ import getDomain from '../lib/getDomain'
 
 async function getData() {
   // 1 endpoint
-
+  const domain = getDomain();
   const endpoint = `${domain}/api/posts`
   const res = await fetch(endpoint)
 
@@ -13,8 +13,11 @@ async function getData() {
     throw new Error("Failed to fetch data")
   }
 
+  if (res.headers.get("content-type") !== "application/json") {
+    return {items: []}
+  }
+
   return res.json()
-  return {items:[]}
 }
 
 export default async function BlogPage() {
