@@ -1,7 +1,6 @@
 import React from 'react'
 import getDomain from '../lib/getDomain'
 
-
 // fetch caching options
 
 // default force-cache
