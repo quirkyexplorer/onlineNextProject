@@ -1,8 +1,9 @@
 'use client'
+
 import { useEffect } from 'react'
 
 export default function Error({error, reset}) {
-  console.log(error);
+  
   useEffect(() => {
     // here we would handle error, like sending an email notification or something
     // or send a report status
