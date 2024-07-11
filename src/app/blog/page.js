@@ -1,5 +1,3 @@
-
-
 import React from 'react'
 import getDomain from '../lib/getDomain'
 
