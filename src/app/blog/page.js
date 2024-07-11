@@ -1,4 +1,4 @@
-//'use client'
+
 
 import React from 'react'
 import getDomain from '../lib/getDomain'
@@ -10,24 +10,22 @@ import getDomain from '../lib/getDomain'
 // no-store
 
 async function getData() {
-  // 1 endpoint
-  const domain = getDomain();
-  const endpoint = `${domain}/api/posts`
-  // revalidate every 10 seconds
-  //const res = await fetch(endpoint, {next: {revalidate: 10 }})
+  // 1 endpoint - API?
+  const domain = getDomain()
+  const endpoint = `${domain}/api/posts` // -> third party api request??
+  // const res = await fetch(endpoint, {next: {revalidate: 10 }}) // HTTP GET
+  const res = await fetch(endpoint, {cache: 'no-store' }) // HTTP GET
 
-  const res = await fetch(endpoint)
-
-  if(!res.ok) {
-    throw new Error("Failed to fetch data")
+  if (!res.ok) {
+      throw new Error("Failed to fetch data")
   }
 
   if (res.headers.get("content-type") !== "application/json") {
-    return {items: []}
+      return {items: []}
   }
-
   return res.json()
 }
+
 
 export default async function BlogPage() {
   const data = await getData()
@@ -35,7 +33,7 @@ export default async function BlogPage() {
   return (
     <main>
 
-      <div>page</div>
+      <div>Posts: </div>
       {items && items.map((item, i) => {
         return <li key={`post-${i}`}>{item.title}</li>
       })}

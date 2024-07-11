@@ -1,20 +1,17 @@
 //'use client'
 
-import React from 'react'
-
 async function getData() {
-  // // 1 endpoint
+  // 1 endpoint - API?
+  // const endpoint = "http://localhosts:3000/api/posts" // -> third party api request??
+  // const res = await fetch(endpoint) // HTTP GET
 
-  // const endpoint = "http://localhost:3000/pi/posts"
-  // const res = await fetch(endpoint)
-
-  // if(!res.ok) {
-  //   throw new Error("Failed to fetch data")
+  // if (!res.ok) {
+  //     throw new Error("Failed to fetch data")
   // }
-
   // return res.json()
-  return {items:[]}
+  return {items: []}
 }
+
 
 export default async function BlogPage() {
   const data = await getData()
