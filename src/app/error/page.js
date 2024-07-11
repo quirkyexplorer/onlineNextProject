@@ -21,11 +21,11 @@ export default async function BlogPage() {
   const items = data && data.items ? [...data.items] : []
   return (
     <main>
-
-      <div>page</div>
-      {items && items.map((item, i) => {
-        return <li key={`post-${i}`}>{item.title}</li>
-      })}
+        <h1>Hello World</h1>
+        <p>Posts:</p>
+        {items && items.map((item, idx)=>{
+            return <li key={`post-${idx}`}>{item.title}</li>
+        })}
     </main>    
   )
 }

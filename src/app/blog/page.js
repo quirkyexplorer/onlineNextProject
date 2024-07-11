@@ -3,6 +3,12 @@
 import React from 'react'
 import getDomain from '../lib/getDomain'
 
+// fetch caching options
+
+// default force-cache
+// revalidate: n seconds
+// no-store
+
 async function getData() {
   // 1 endpoint
   const domain = getDomain();
