@@ -14,7 +14,7 @@ async function getData() {
   //const res = await fetch(endpoint)
   //const res = await fetch(endpoint, {next: {revalidate: 10 }}) // HTTP GET
   const res = await fetch(endpoint, {cache: 'no-store' }) // HTTP GET
-  //console.log('domain',domain);
+  console.log('domain',domain);
   if (!res.ok) {
       throw new Error("Failed to fetch data")
   }
