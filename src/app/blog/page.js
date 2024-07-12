@@ -18,7 +18,6 @@ async function getData() {
 
   const res = await fetch(endpoint, {cache: 'no-store' }) // HTTP GET
 
-
   if (!res.ok) {
       throw new Error("Failed to fetch data")
   }
