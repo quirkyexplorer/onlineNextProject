@@ -1,5 +1,6 @@
 import React from 'react'
 import getDomain from '../lib/getDomain'
+import BlogCard from './card'
 
 // fetch caching options
 
@@ -37,8 +38,9 @@ export default async function BlogPage() {
      
       <div>Posts: </div>
       {items && items.map((item, i) => {
-        return <li key={`post-${i}`}>{item.title}</li>
+        return  <BlogCard key={`post-${i}`} title={item.title}/>       
       })}
+
     </main>    
   )
 }
