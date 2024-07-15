@@ -12,7 +12,9 @@ export default function GithubProfile() {
   return (
     <div>
       <h1>{data.name}</h1>
+      <p>{data.description}</p>
       <div className='flex gap-4'>
+      
       <strong> 👁️ subscribers {data.subscribers_count}</strong>{" "}
 
       <strong> ❤️ star gazers {data.stargazers_count}</strong>{" "}
