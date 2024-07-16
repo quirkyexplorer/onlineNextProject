@@ -34,8 +34,9 @@ export default function LinksCreateForm() {
 
   return (
     <>
-      <form onSubmit={handleForm}>
+      <form onSubmit={handleForm} className="flex gap-4">
         <input 
+        className="text-black"
         type="text"
         defaultValue="https://github.com/quirkyexplorer/onlineNextProject"
         name="url" 
