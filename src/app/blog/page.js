@@ -1,6 +1,7 @@
 import React from 'react'
 import getDomain from '../lib/getDomain'
 import BlogCard from './card'
+import { helloWorld } from '@/app/lib/db'
 
 // fetch caching options
 
@@ -10,12 +11,10 @@ import BlogCard from './card'
 
 async function getData() {
   // 1 endpoint - API?
-  const domain = getDomain()
+  const domain = getDomain();
   const endpoint = `${domain}/api/posts` // -> third party api request??
   //const res = await fetch(endpoint)
   //const res = await fetch(endpoint, {next: {revalidate: 10 }}) // HTTP GET
-
-  console.log('domain',domain);
 
   const res = await fetch(endpoint, {cache: 'no-store' }) // HTTP GET
 
@@ -33,9 +32,12 @@ async function getData() {
 export default async function BlogPage() {
   const data = await getData()
   const items = data && data.items ? [...data.items] : []
+  const dbHello = await helloWorld();
+
+  console.log('dbHello' , dbHello )
   return (
     <main>
-     
+      <p>DB Response: {JSON.stringify(dbHello)} </p>
       <div>Posts: </div>
       {items && items.map((item, i) => {
         return  <BlogCard key={`post-${i}`} title={item.title}/>       
@@ -44,3 +46,7 @@ export default async function BlogPage() {
     </main>    
   )
 }
+
+
+export const runtime = 'edge' // if we dont do this, it defaults to node.js
+export const preferredRegion = "auto"
