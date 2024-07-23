@@ -1,4 +1,3 @@
-import React from 'react'
 import getDomain from '../lib/getDomain'
 import BlogCard from './card'
 import { helloWorld } from '@/app/lib/db'
@@ -30,9 +29,10 @@ async function getData() {
 
 
 export default async function BlogPage() {
-  const data = await getData()
-  const items = data && data.items ? [...data.items] : []
+  const data = await getData();
   const dbHello = await helloWorld();
+  const items = data && data.items ? [...data.items] : []
+ 
 
   console.log('dbHello' , dbHello )
   return (
