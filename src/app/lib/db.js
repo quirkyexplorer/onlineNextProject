@@ -1,4 +1,6 @@
 import { neon }  from '@neondatabase/serverless'
+import {drizzle} from 'drizzle-orm/neon-http'
+
 const sql = neon(process.env.DATABASE_URL)
 
 // console.log(sql`SELECT NOW()`);
@@ -15,6 +17,7 @@ async function configureDatabase() {
   const [dbResponse] = await sql`CREATE TABLE IF NOT EXISTS "links" (
     "id" serial PRIMARY KEY NOT NULL,
     "url" text NOT NULL, 
+    "short" varchar(50),
     "created_at" timestamp DEFAULT  now()
     )`
     

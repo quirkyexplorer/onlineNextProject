@@ -1,6 +1,6 @@
 import getDomain from '../lib/getDomain'
 import BlogCard from './card'
-import { helloWorld } from '@/app/lib/db'
+import { helloWorld } from '../lib/db'
 
 // fetch caching options
 
